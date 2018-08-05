@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset="utf-8">
+	<title>Test</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="resource/datatables.min.css"/>
+	<link rel="stylesheet" type="text/css"
+				href="resource/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+	<script type="text/javascript"
+					src="resource/jQuery-3.2.1/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript"
+					src="resource/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
+	<script type="text/javascript" src="resource/jquery.csv.min.js"></script>
+	<script src="myScript2.js"></script>
+</head>
+
+<body>
+<h3 style="text-align:center">Restaurant Recommendation by Dish</h3>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4>Please pick your dish</h4>
+	</div>
+	<div class="panel-body">
+		<div id="tagGroup"></div>
+	</div>
+</div>
+
+<div class="tab">
+	<button class="tablinks active" onclick="openSection(event, 'Listings')">List</button>
+	<button class="tablinks" onclick="openSection(event, 'Graph')">Graph</button>
+	<button class="tablinks" onclick="openSection(event, 'About')">About</button>
+</div>
+
+<div id='Listings' class="tabcontent" style="display:block">
+	<div class="container">
+	  <div class="table-responsive">
+	      <div id="tableContainer">
+	          <h2>Please select a dish</h2>
+	      </div>
+	  </div>
+	</div>
+</div>
+
+<div id='Graph' class="tabcontent">
+	<h3>Top 10 Restaurants That Serve The Selected Dish</h3>
+	<div id='Bar-chart'></div>
+</div>
+
+<div id="About" class="tabcontent">
+	<h4>Overview</h4>
+	This app allows user to find the best rating restaurants that serve the dish that the user wish to have.
+	Novelty of the Application
+	Existing restaurant review forums, such as Yelp and Trip Advisor, only allow you to select the category of the food you wish to have. For example, you can only filter restaurants by categories like Chinese food, Spanish food, Indian food. However, sometimes we are looking for a restaurant that serves some specific dishes. When you try to look for a restaurant that serve dim sum, you will have to read through the menu or the reviews to find out whether this restaurant serves dim sum. Being able to filter the list by dishes is very helpful for this scenario. This application implements the function to allow user to search restaurant by the dish that they plan to have. Because of time limitation and simplification, this application only contains Chinese dishes to show the idea.
+		<h4>Intended User</h4>
+	The intended users of this application are restaurant finders who want to find a restaurant that serves the Chinese dish that they want to have.
+		<h4>Application Scenario</h4>
+	User A wants to have Dim Sum for diner. User A selects “Dim Sum” in the application, a list of restaurants that serves Dim Sum are shown. User A can pick the restaurant that best meets his interest from this application.
+		<h4>Interface Design</h4>
+	This application consists of three parts: dish selector, restaurant list and top rating graph. Dish selector is where the user can pick the dish that they plan to have. Restaurant list is a list of restaurants which serve the dish selected in the dish selector. In this list, the name, address and average rating are displayed. Rating graph part contains a graph that shows the rating of the top 10 restaurants that serve the selected dish. In this graph, the top 10 ratings of the restaurants that serve the selected dishes are shown.
+		<h4>Limitation</h4>
+	Because of time limitation, there are some limitations in this application:
+	1.	This application only implements the simplest user interface to demonstrate the idea. There are lots of work can be done in the user interface to improve the application. For example, instead of using a table, a list that contains the photos of the restaurant will be better.
+	2.	This application doesn’t show the reviews of the restaurant. Reviews can be added in future work so that it will better help the user to make dining decision.
+	3.	Whether the restaurant serves the selected dish is based on the reviews text. More sophisticated methods can be used in future.
+</div>
+
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+//
+</script>
+
+</body>
+</html>
